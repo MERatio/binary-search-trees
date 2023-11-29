@@ -34,6 +34,13 @@ class Tree {
       this.prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
     }
   }
+
+  static getHeight(node) {
+    if (node === null) {
+      return 0;
+    }
+    return Math.max(this.getHeight(node.left), this.getHeight(node.right)) + 1;
+  }
 }
 
 export default Tree;
