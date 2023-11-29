@@ -21,8 +21,8 @@ function driver() {
   const arr = generateUniqueNumbers(10);
   const tree = new Tree(arr);
   Tree.prettyPrint(tree.root);
-  console.log(Tree.getHeight(tree.root));
-  console.log(Tree.isBalanced(tree.root));
+  console.log("height:", Tree.getHeight(tree.root));
+  console.log("is balanced?", Tree.isBalanced(tree.root));
 
   console.log("add 101:", tree.insert(101));
   Tree.prettyPrint(tree.root);
