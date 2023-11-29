@@ -18,6 +18,21 @@ class Tree {
     return node;
   }
 
+  #insertRec(node, data) {
+    if (node === null) {
+      node = new Node(data);
+      return node;
+    }
+    if (data < node.data) {
+      node.left = this.#insertRec(node.left, data);
+    } else if (data > node.data) {
+      node.right = this.#insertRec(node.right, data);
+    } else {
+      throw new Error("Trees cannot contain any duplicate values.");
+    }
+    return node;
+  }
+
   static prettyPrint(node, prefix = "", isLeft = true) {
     if (node === null) {
       return;
@@ -53,6 +68,10 @@ class Tree {
       this.isBalanced(node.left) &&
       this.isBalanced(node.right)
     );
+  }
+
+  insert(data) {
+    this.root = this.#insertRec(this.root, data);
   }
 }
 
