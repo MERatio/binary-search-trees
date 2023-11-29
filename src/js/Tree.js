@@ -41,6 +41,19 @@ class Tree {
     }
     return Math.max(this.getHeight(node.left), this.getHeight(node.right)) + 1;
   }
+
+  static isBalanced(node) {
+    if (node === null) {
+      return true;
+    }
+    const leftHeight = this.getHeight(node.left);
+    const rightHeight = this.getHeight(node.right);
+    return (
+      Math.abs(leftHeight - rightHeight) <= 1 &&
+      this.isBalanced(node.left) &&
+      this.isBalanced(node.right)
+    );
+  }
 }
 
 export default Tree;

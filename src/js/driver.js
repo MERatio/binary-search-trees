@@ -22,6 +22,7 @@ function driver() {
   const tree = new Tree(arr);
   Tree.prettyPrint(tree.root);
   console.log(Tree.getHeight(tree.root));
+  console.log(Tree.isBalanced(tree.root));
 }
 
 export default driver;
