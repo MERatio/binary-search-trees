@@ -33,6 +33,51 @@ class Tree {
     return node;
   }
 
+  // https://www.geeksforgeeks.org/deletion-in-binary-search-tree/
+  #deleteRec(node, data) {
+    if (node === null) {
+      return node;
+    }
+    // Find the node to be deleted.
+    if (data < node.data) {
+      node.left = this.#deleteRec(node.left, data);
+      return node;
+    } else if (data > node.data) {
+      node.right = this.#deleteRec(node.right, data);
+      return node;
+    } else {
+      // When it reaches here the node to be deleted is found.
+      /* If the node to be deleted has 1 empty child.
+         Make its parent point to its grand child, essentially removing the node to be deleted.
+      */
+      if (node.left === null) {
+        return node.right;
+      } else if (node.right === null) {
+        return node.left;
+      } else {
+        // If the node to be deleted has both children.
+        let succParent = node;
+        /* Find the successor.
+           Successor is the next bigger node value next to the node to be deleted.
+        */
+        let succ = node.right;
+        while (succ.left !== null) {
+          succParent = succ;
+          succ = succ.left;
+        }
+        // Delete successor.
+        if (succParent !== node) {
+          succParent.left = succ.right;
+        } else {
+          succParent.right = succ.right;
+        }
+        // Copy successor data to node to be deleted.
+        node.data = succ.data;
+        return node;
+      }
+    }
+  }
+
   static prettyPrint(node, prefix = "", isLeft = true) {
     if (node === null) {
       return;
@@ -72,6 +117,10 @@ class Tree {
 
   insert(data) {
     this.root = this.#insertRec(this.root, data);
+  }
+
+  delete(data) {
+    this.root = this.#deleteRec(this.root, data);
   }
 }
 
