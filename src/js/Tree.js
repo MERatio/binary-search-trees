@@ -138,6 +138,33 @@ class Tree {
   find(data) {
     return this.#findRec(this.root, data);
   }
+
+  levelOrder(cb) {
+    if (this.root === null) {
+      if (cb === undefined) {
+        return [];
+      }
+    }
+    const nodeQueue = [this.root];
+    const result = [];
+    while (nodeQueue.length > 0) {
+      const curNode = nodeQueue.shift();
+      if (cb) {
+        cb(curNode);
+      } else {
+        result.push(curNode.data);
+      }
+      if (curNode.left !== null) {
+        nodeQueue.push(curNode.left);
+      }
+      if (curNode.right !== null) {
+        nodeQueue.push(curNode.right);
+      }
+    }
+    if (cb === undefined) {
+      return result;
+    }
+  }
 }
 
 export default Tree;

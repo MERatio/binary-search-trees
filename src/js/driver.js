@@ -34,6 +34,7 @@ function driver() {
   Tree.prettyPrint(tree.root);
 
   console.log("find 8:", tree.find(8));
+  console.log("level order no cb:", tree.levelOrder());
 }
 
 export default driver;
