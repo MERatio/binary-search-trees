@@ -32,6 +32,8 @@ function driver() {
 
   console.log("delete tree root node:", tree.delete(tree.root.data));
   Tree.prettyPrint(tree.root);
+
+  console.log("find 8:", tree.find(8));
 }
 
 export default driver;

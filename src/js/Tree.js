@@ -78,6 +78,18 @@ class Tree {
     }
   }
 
+  #findRec(node, data) {
+    if (node === null) {
+      return null;
+    } else if (node.data > data) {
+      return this.#findRec(node.left, data);
+    } else if (node.data < data) {
+      return this.#findRec(node.right, data);
+    } else {
+      return node;
+    }
+  }
+
   static prettyPrint(node, prefix = "", isLeft = true) {
     if (node === null) {
       return;
@@ -121,6 +133,10 @@ class Tree {
 
   delete(data) {
     this.root = this.#deleteRec(this.root, data);
+  }
+
+  find(data) {
+    return this.#findRec(this.root, data);
   }
 }
 
