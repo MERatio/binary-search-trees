@@ -24,11 +24,11 @@ class Tree {
     }
   }
 
-  static getHeight(node) {
+  static height(node) {
     if (node === null) {
       return -1;
     }
-    return Math.max(this.getHeight(node.left), this.getHeight(node.right)) + 1;
+    return Math.max(this.height(node.left), this.height(node.right)) + 1;
   }
 
   #buildTree(arr) {
@@ -114,14 +114,14 @@ class Tree {
     }
   }
 
-  #getDepthRec(tmp, node, depth = 0) {
+  #depthRec(tmp, node, depth = 0) {
     if (tmp === null) {
       return -1;
     }
     if (tmp.data > node.data) {
-      return this.#getDepthRec(tmp.left, node, depth + 1);
+      return this.#depthRec(tmp.left, node, depth + 1);
     } else if (tmp.data < node.data) {
-      return this.#getDepthRec(tmp.right, node, depth + 1);
+      return this.#depthRec(tmp.right, node, depth + 1);
     } else {
       return depth;
     }
@@ -131,8 +131,8 @@ class Tree {
     if (node === null) {
       return true;
     }
-    const leftHeight = Tree.getHeight(node.left);
-    const rightHeight = Tree.getHeight(node.right);
+    const leftHeight = Tree.height(node.left);
+    const rightHeight = Tree.height(node.right);
     return (
       Math.abs(leftHeight - rightHeight) <= 1 &&
       this.#isBalancedRec(node.left) &&
@@ -251,8 +251,8 @@ class Tree {
     }
   }
 
-  getDepth(node) {
-    return this.#getDepthRec(this.root, node);
+  depth(node) {
+    return this.#depthRec(this.root, node);
   }
 
   isBalanced() {

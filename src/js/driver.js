@@ -30,8 +30,8 @@ function driver() {
   console.log("postOrder no cb::", tree.postOrder());
 
   console.log("------------------------------");
-  console.log("height of root:", Tree.getHeight(tree.root));
-  console.log("depth of 8:", tree.getDepth(tree.root.right.left.right));
+  console.log("height of root:", Tree.height(tree.root));
+  console.log("depth of 8:", tree.depth(tree.root.right.left.right));
 
   console.log("delete tree root node:", tree.delete(tree.root.data));
   Tree.prettyPrint(tree.root);
