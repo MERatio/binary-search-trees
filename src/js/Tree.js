@@ -144,7 +144,11 @@ class Tree {
     if (node === null) {
       return [];
     } else {
-      return [...this.#bstToArr(node.left), node.data, ...this.#bstToArr(node.right)];
+      return [
+        ...this.#bstToArr(node.left),
+        node.data,
+        ...this.#bstToArr(node.right),
+      ];
     }
   }
 

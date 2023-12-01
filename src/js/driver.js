@@ -29,12 +29,9 @@ function driver() {
   console.log("preOrder no cb::", tree.preOrder());
   console.log("postOrder no cb::", tree.postOrder());
 
-  console.log("------------------------------")
+  console.log("------------------------------");
   console.log("height of root:", Tree.getHeight(tree.root));
-  console.log(
-    "depth of 8:",
-    tree.getDepth(tree.root.right.left.right),
-  );
+  console.log("depth of 8:", tree.getDepth(tree.root.right.left.right));
 
   console.log("delete tree root node:", tree.delete(tree.root.data));
   Tree.prettyPrint(tree.root);
