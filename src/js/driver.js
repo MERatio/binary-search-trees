@@ -35,6 +35,8 @@ function driver() {
 
   console.log("find 8:", tree.find(8));
   console.log("level order no cb:", tree.levelOrder());
+
+  console.log("inOrder no cb::", tree.inOrder());
 }
 
 export default driver;
