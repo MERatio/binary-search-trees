@@ -140,6 +140,14 @@ class Tree {
     );
   }
 
+  #bstToArr(node) {
+    if (node === null) {
+      return [];
+    } else {
+      return [...this.#bstToArr(node.left), node.data, ...this.#bstToArr(node.right)];
+    }
+  }
+
   insert(data) {
     this.root = this.#insertRec(this.root, data);
   }
@@ -245,6 +253,11 @@ class Tree {
 
   isBalanced() {
     return this.#isBalancedRec(this.root);
+  }
+
+  rebalance() {
+    const sortedArr = this.#bstToArr(this.root);
+    this.root = this.#buildTree(sortedArr);
   }
 }
 

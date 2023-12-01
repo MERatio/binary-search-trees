@@ -26,6 +26,19 @@ function driver() {
   console.log("inOrder no cb::", tree.inOrder());
   console.log("preOrder no cb::", tree.preOrder());
   console.log("postOrder no cb::", tree.postOrder());
+
+  console.log("insert 102:", tree.insert(102));
+  console.log("insert 103:", tree.insert(103));
+  console.log("insert 104:", tree.insert(104));
+  console.log("is balanced?", tree.isBalanced());
+  console.log("rebalance:", tree.rebalance());
+  console.log("is balanced?", tree.isBalanced());
+
+  Tree.prettyPrint(tree.root);
+  console.log("level order no cb:", tree.levelOrder());
+  console.log("inOrder no cb::", tree.inOrder());
+  console.log("preOrder no cb::", tree.preOrder());
+  console.log("postOrder no cb::", tree.postOrder());
 }
 
 export default driver;
