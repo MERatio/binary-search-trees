@@ -31,19 +31,6 @@ class Tree {
     return Math.max(this.getHeight(node.left), this.getHeight(node.right)) + 1;
   }
 
-  static isBalanced(node) {
-    if (node === null) {
-      return true;
-    }
-    const leftHeight = this.getHeight(node.left);
-    const rightHeight = this.getHeight(node.right);
-    return (
-      Math.abs(leftHeight - rightHeight) <= 1 &&
-      this.isBalanced(node.left) &&
-      this.isBalanced(node.right)
-    );
-  }
-
   #buildTree(arr) {
     if (arr.length === 0) {
       return null;
@@ -125,6 +112,19 @@ class Tree {
     } else {
       return node;
     }
+  }
+
+  #isBalanced(node) {
+    if (node === null) {
+      return true;
+    }
+    const leftHeight = Tree.getHeight(node.left);
+    const rightHeight = Tree.getHeight(node.right);
+    return (
+      Math.abs(leftHeight - rightHeight) <= 1 &&
+      this.#isBalanced(node.left) &&
+      this.#isBalanced(node.right)
+    );
   }
 
   insert(data) {
@@ -224,6 +224,10 @@ class Tree {
     if (cb === undefined) {
       return result;
     }
+  }
+
+  isBalanced() {
+    return this.#isBalanced(this.root);
   }
 }
 
