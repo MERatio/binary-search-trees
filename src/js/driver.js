@@ -5,40 +5,41 @@ function driver() {
   const tree = new Tree(arr);
 
   Tree.prettyPrint(tree.root);
-  console.log("height of root:", Tree.getHeight(tree.root));
   console.log("is balanced?", tree.isBalanced());
 
+  console.log("level order no cb:", tree.levelOrder());
+  console.log("inOrder no cb::", tree.inOrder());
+  console.log("preOrder no cb::", tree.preOrder());
+  console.log("postOrder no cb::", tree.postOrder());
+
   console.log("insert 101:", tree.insert(101));
+  console.log("insert 102:", tree.insert(102));
+  console.log("insert 103:", tree.insert(103));
+
   Tree.prettyPrint(tree.root);
+  console.log("is balanced?", tree.isBalanced());
+
+  console.log("rebalance:", tree.rebalance());
+
+  Tree.prettyPrint(tree.root);
+  console.log("is balanced?", tree.isBalanced());
+
+  console.log("level order no cb:", tree.levelOrder());
+  console.log("inOrder no cb::", tree.inOrder());
+  console.log("preOrder no cb::", tree.preOrder());
+  console.log("postOrder no cb::", tree.postOrder());
+
+  console.log("------------------------------")
   console.log("height of root:", Tree.getHeight(tree.root));
   console.log(
-    "depth of 101:",
-    tree.getDepth(tree.root.right.right.right.right),
+    "depth of 8:",
+    tree.getDepth(tree.root.right.left.right),
   );
-  console.log("is balanced?", tree.isBalanced());
 
   console.log("delete tree root node:", tree.delete(tree.root.data));
   Tree.prettyPrint(tree.root);
 
   console.log("find 8:", tree.find(8));
-
-  console.log("level order no cb:", tree.levelOrder());
-  console.log("inOrder no cb::", tree.inOrder());
-  console.log("preOrder no cb::", tree.preOrder());
-  console.log("postOrder no cb::", tree.postOrder());
-
-  console.log("insert 102:", tree.insert(102));
-  console.log("insert 103:", tree.insert(103));
-  console.log("insert 104:", tree.insert(104));
-  console.log("is balanced?", tree.isBalanced());
-  console.log("rebalance:", tree.rebalance());
-  console.log("is balanced?", tree.isBalanced());
-
-  Tree.prettyPrint(tree.root);
-  console.log("level order no cb:", tree.levelOrder());
-  console.log("inOrder no cb::", tree.inOrder());
-  console.log("preOrder no cb::", tree.preOrder());
-  console.log("postOrder no cb::", tree.postOrder());
 }
 
 export default driver;
