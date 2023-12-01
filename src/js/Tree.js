@@ -26,7 +26,7 @@ class Tree {
 
   static getHeight(node) {
     if (node === null) {
-      return 0;
+      return -1;
     }
     return Math.max(this.getHeight(node.left), this.getHeight(node.right)) + 1;
   }
