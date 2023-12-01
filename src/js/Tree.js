@@ -205,6 +205,26 @@ class Tree {
       return result;
     }
   }
+
+  postOrder(cb) {
+    const result = [];
+    function traverse(node, cb) {
+      if (node === null) {
+        return;
+      }
+      traverse(node.left, cb);
+      traverse(node.right, cb);
+      if (cb) {
+        cb(node);
+      } else {
+        result.push(node.data);
+      }
+    }
+    traverse(this.root, cb);
+    if (cb === undefined) {
+      return result;
+    }
+  }
 }
 
 export default Tree;

@@ -38,6 +38,7 @@ function driver() {
 
   console.log("inOrder no cb::", tree.inOrder());
   console.log("preOrder no cb::", tree.preOrder());
+  console.log("postOrder no cb::", tree.postOrder());
 }
 
 export default driver;
