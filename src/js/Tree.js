@@ -185,6 +185,26 @@ class Tree {
       return result;
     }
   }
+
+  preOrder(cb) {
+    const result = [];
+    function traverse(node, cb) {
+      if (node === null) {
+        return;
+      }
+      if (cb) {
+        cb(node);
+      } else {
+        result.push(node.data);
+      }
+      traverse(node.left, cb);
+      traverse(node.right, cb);
+    }
+    traverse(this.root, cb);
+    if (cb === undefined) {
+      return result;
+    }
+  }
 }
 
 export default Tree;
