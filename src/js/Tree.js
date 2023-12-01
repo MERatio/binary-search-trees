@@ -114,6 +114,19 @@ class Tree {
     }
   }
 
+  #getDepthRec(tmp, node, depth = 0) {
+    if (tmp === null) {
+      return -1;
+    }
+    if (tmp.data > node.data) {
+      return this.#getDepthRec(tmp.left, node, depth + 1);
+    } else if (tmp.data < node.data) {
+      return this.#getDepthRec(tmp.right, node, depth + 1);
+    } else {
+      return depth;
+    }
+  }
+
   #isBalanced(node) {
     if (node === null) {
       return true;
@@ -224,6 +237,10 @@ class Tree {
     if (cb === undefined) {
       return result;
     }
+  }
+
+  getDepth(node) {
+    return this.#getDepthRec(this.root, node);
   }
 
   isBalanced() {

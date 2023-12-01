@@ -11,6 +11,7 @@ function driver() {
   console.log("insert 101:", tree.insert(101));
   Tree.prettyPrint(tree.root);
   console.log("height:", Tree.getHeight(tree.root));
+  console.log("depth of 101:", tree.getDepth(tree.root.right.right.right.right));
   console.log("is balanced?", tree.isBalanced());
 
   console.log("delete tree root node:", tree.delete(tree.root.data));
