@@ -127,7 +127,7 @@ class Tree {
     }
   }
 
-  #isBalanced(node) {
+  #isBalancedRec(node) {
     if (node === null) {
       return true;
     }
@@ -135,8 +135,8 @@ class Tree {
     const rightHeight = Tree.getHeight(node.right);
     return (
       Math.abs(leftHeight - rightHeight) <= 1 &&
-      this.#isBalanced(node.left) &&
-      this.#isBalanced(node.right)
+      this.#isBalancedRec(node.left) &&
+      this.#isBalancedRec(node.right)
     );
   }
 
@@ -244,7 +244,7 @@ class Tree {
   }
 
   isBalanced() {
-    return this.#isBalanced(this.root);
+    return this.#isBalancedRec(this.root);
   }
 }
 
